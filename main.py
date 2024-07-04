@@ -13,12 +13,13 @@ client = anthropic.Anthropic(
 )
 
 message = client.messages.create(
-    model="claude-3-opus-20240229",# 4.545861721038818 segundos | 2.9456045627593994 segundos
-    # model="claude-3-5-sonnet-20240620",#1.962998628616333 segundos | 1.775184154510498 segundos
-    # model= "claude-3-sonnet-20240229", #4.803567171096802 segundos | 3.022520065307617 segundos
-    # model="claude-3-haiku-20240307",#2.4997713565826416 segundos | 1.327709436416626 segundos
+    # model="claude-3-opus-20240229",# 3.952160358428955 segundos | 2.9456045627593994 segundos | 3.415724992752075 segundos
+    # model="claude-3-5-sonnet-20240620",# 1.9170119762420654 segundos | 1.775184154510498 segundos | 1.838169813156128 segundos
+    # model= "claude-3-sonnet-20240229", # 4.4278693199157715 segundos | 3.022520065307617 segundos | 1.8555750846862793 segundos
+    model="claude-3-haiku-20240307",# 2.6707873344421387 segundos | 1.327709436416626 segundos | 1.4343557357788086 segundos
     max_tokens=1000,
     temperature=0,
+    # system="Listar apenas os nomes dos produtos, sem considerar descrição.",
     system="Listar apenas os nomes dos alimentos, sem considerar descrição.",
     messages=[
         {
@@ -26,7 +27,7 @@ message = client.messages.create(
             "content": [
                 {
                     "type": "text",
-                    "text": "liste 3 alimentos veganos\n"
+                    "text": "liste 3 alimentos veganos\n" # 3 produtos sustentáveis | 3 alimentos veganos | 3 alimentos com brócolis
                 }
             ]
         }
