@@ -7,11 +7,33 @@ client = anthropic.Anthropic(
     api_key=os.environ.get("ANTHROPIC_API_KEY"),
 )
 modelo = "claude-3-5-sonnet-20240620"
-prompt_sistema = "Classifique o produto abaixo em uma das categorias: Bebida, Comida Salgada e Comida Doce. Dê uma descrição da categoria."
+prompt_sistema = f"""
+Você é um categorizador de alimentos.
+Você deve assumir as categorias presentes na lista abaixo.
+
+# Lista de Categorias Válidas
+    - Frutas
+    - Vegetais
+    - Carnes
+    - Grãos e Cereais
+    - Laticínios
+    - Bebidas
+    - Doces e Sobremesas
+    - Alimentos Processados
+
+# Formato da Saída
+Produto: Nome do Produto
+Categoria: apresente a categoria do produto
+
+# Exemplo de Saída
+Produto: Maçã
+Categoria: Frutas
+"""
+prompt_usuario = input("Forneça um alimento: ")
 
 message = client.messages.create(
     model= modelo,
-    max_tokens=1000, #100
+    max_tokens=500, #100
     temperature=0,
     # stop_sequences = ["Descrição"],
     system=prompt_sistema,
@@ -21,7 +43,7 @@ message = client.messages.create(
             "content": [
                 {
                     "type": "text",
-                    "text": "Sorvete de Chocolate"
+                    "text": prompt_usuario,
                 }
             ]
         }
