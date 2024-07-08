@@ -6,13 +6,15 @@ dotenv.load_dotenv()
 client = anthropic.Anthropic(
     api_key=os.environ.get("ANTHROPIC_API_KEY"),
 )
+modelo = "claude-3-5-sonnet-20240620"
+prompt_sistema = "Classifique o produto abaixo em uma das categorias: Bebida, Comida Salgada e Comida Doce. Dê uma descrição da categoria."
 
 message = client.messages.create(
-    model="claude-3-5-sonnet-20240620",
+    model= modelo,
     max_tokens=1000, #100
     temperature=0,
     # stop_sequences = ["Descrição"],
-    system="Classifique o produto abaixo em uma das categorias: Bebida, Comida Salgada e Comida Doce. Dê uma descrição da categoria.",
+    system=prompt_sistema,
     messages=[
         {
             "role": "user",
