@@ -1,0 +1,104 @@
+{
+  "transacoes": [
+    {
+      "id": "9c",
+      "tipo": "crédito",
+      "estabelecimento": "Esporte C",
+      "horário": "2023-11-21 21:53:28",
+      "valor": "R$1103,00",
+      "nome_produto": "Artigo Esportivo",
+      "localização": "Porto Alegre - RS (Brasil)",
+      "status": "Possível Fraude"
+    },
+    {
+      "id": "8c",
+      "tipo": "crédito",
+      "estabelecimento": "Padaria Doce Pão",
+      "horário": "2023-11-21 21:39:28",
+      "valor": "R$21,00",
+      "nome_produto": "Bolos",
+      "localização": "São Paulo - SP (Brasil)",
+      "status": "Aprovado"
+    },
+    {
+      "id": "7c",
+      "tipo": "crédito",
+      "estabelecimento": "Recarga Fácil",
+      "horário": "2023-11-21 21:35:28",
+      "valor": "R$50,00",
+      "nome_produto": "Recarga de 50 Reais",
+      "localização": "São Paulo - SP (Brasil)",
+      "status": "Aprovado"
+    },
+    {
+      "id": "6c",
+      "tipo": "crédito",
+      "estabelecimento": "GameStore C",
+      "horário": "2023-11-15 21:35:28",
+      "valor": "R$180,00",
+      "nome_produto": "Jogo Digital",
+      "localização": "São Paulo - SP (Brasil)",
+      "status": "Aprovado"
+    },
+    {
+      "id": "5c",
+      "tipo": "crédito",
+      "estabelecimento": "GameStore C",
+      "horário": "2023-11-10 15:54:28",
+      "valor": "R$152,00",
+      "nome_produto": "Jogo Digital",
+      "localização": "São Paulo - SP (Brasil)",
+      "status": "Aprovado"
+    },
+    {
+      "id": "4c",
+      "tipo": "crédito",
+      "estabelecimento": "Padaria Trigo Dourado",
+      "horário": "2023-11-10 13:48:28",
+      "valor": "R$11,00",
+      "nome_produto": "Bolos",
+      "localização": "São Paulo - SP (Brasil)",
+      "status": "Aprovado"
+    },
+    {
+      "id": "3c",
+      "tipo": "crédito",
+      "estabelecimento": "Recarga Fácil",
+      "horário": "2023-11-10 13:50:28",
+      "valor": "R$50,00",
+      "nome_produto": "Recarga de 50 Reais",
+      "localização": "São Paulo - SP (Brasil)",
+      "status": "Aprovado"
+    },
+    {
+      "id": "1d",
+      "tipo": "débito",
+      "estabelecimento": "Padaria Doce Pão",
+      "horário": "2023-11-10 09:36:28",
+      "valor": "R$25,00",
+      "nome_produto": "Café da Manhã",
+      "localização": "São Paulo - SP (Brasil)",
+      "status": "Aprovado"
+    },
+    {
+      "id": "2c",
+      "tipo": "crédito",
+      "estabelecimento": "Livraria A",
+      "horário": "2023-11-10 08:47:28",
+      "valor": "R$96,00",
+      "nome_produto": "Livro OpenAI",
+      "localização": "São Paulo - SP (Brasil)",
+      "status": "Aprovado"
+    },
+    {
+      "id": "1c",
+      "tipo": "crédito",
+      "estabelecimento": "GameStore D",
+      "horário": "2023-11-09 14:48:28",
+      "valor": "R$184,00",
+      "nome_produto": "Jogo de Estratégia",
+      "localização": "São Paulo - SP (Brasil)",
+      "status": "Aprovado"
+    }
+  ]
+}

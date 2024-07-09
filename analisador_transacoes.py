@@ -83,9 +83,10 @@ def analisar_transacao(lista_de_transacoes):
         )
         conteudo = lista_mensagens.content[0].text.replace("'", '"')
         # print(conteudo)
-        print("\nConteúdo:", conteudo)
+        # print("\nConteúdo:", conteudo)
         json_resultado = json.loads(conteudo)
-        print("\nJSON:", json_resultado)
+        # print("\nJSON:", json_resultado)
+        salva(f"transacao.json",conteudo)
         return json_resultado
     except anthropic.APIConnectionError as e:
         print("Não foi possivel se conectar ao servidor")
@@ -147,10 +148,61 @@ def gerar_parecer(transacao):
         print(e.status_code)
         print(e.response)
 
+# código omitido
+
+def gerar_recomendacoes(parecer):
+    print("3. Gerando recomendações")
+        
+    prompt_sistema = f"""
+    Para a seguinte transação, forneça uma recomendação apropriada baseada no status e nos detalhes da transação da Transação: {parecer}
+
+    As recomendações podem ser "Notificar Cliente", "Acionar setor Anti-Fraude" ou "Realizar Verificação Manual".
+    Elas devem ser escritas no formato técnico.
+
+    Inclua também uma classificação do tipo de fraude, se aplicável. 
+    """
+    modelo = "claude-3-5-sonnet-20240620"
+    try:
+        
+        lista_mensagens = client.messages.create(
+            model=modelo,
+            max_tokens=4000,
+            # temperature=0,
+            # system=prompt_sistema,
+            messages=[
+                {
+                    "role": "user",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": prompt_sistema
+                        }
+                    ]
+                }
+            ]
+        )
+        conteudo = lista_mensagens.content[0].text
+        print("Finalizou a geração de recomendação!")
+        return conteudo
+    except anthropic.APIConnectionError as e:
+        print("Não foi possivel se conectar ao servidor")
+        print(e.__cause__) 
+    except anthropic.RateLimitError as e:
+        print("Espere um tempo! Seu limite foi atingido.")
+    except anthropic.APIStatusError as e:
+        print("Um status code diferente de 200 foi retornado!")
+        print(e.status_code)
+        print(e.response)
+
+
 lista_de_transacoes = carrega("transacoes.csv")
 transacoes_analisadas = analisar_transacao(lista_de_transacoes)
 
 for uma_transacao in transacoes_analisadas["transacoes"]: 
     if uma_transacao["status"] == "Possível Fraude": 
         um_parecer = gerar_parecer(uma_transacao)
-        print(um_parecer)
+        recomendacao = gerar_recomendacoes(um_parecer)
+        id_transacao = uma_transacao["id"]
+        produto_transacao = uma_transacao["nome_produto"]
+        status_transacao = uma_transacao["status"]
+        salva(f"transacao-{id_transacao}-{produto_transacao}-{status_transacao}.txt",recomendacao)

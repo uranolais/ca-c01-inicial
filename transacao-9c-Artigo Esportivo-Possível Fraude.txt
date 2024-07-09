@@ -1,0 +1,17 @@
+Recomendação: Acionar setor Anti-Fraude
+
+Justificativa: Devido ao status de "Possível Fraude" e ao parecer detalhado que indica múltiplos fatores de risco, é necessário um escrutínio mais aprofundado por especialistas em detecção de fraudes.
+
+Ações sugeridas:
+1. Suspender temporariamente a transação.
+2. Iniciar investigação detalhada pelo setor Anti-Fraude.
+3. Realizar verificação da identidade do titular do cartão.
+4. Analisar o padrão de compras do cliente para identificar desvios.
+5. Contatar o estabelecimento para confirmar detalhes da venda.
+
+Classificação do tipo de fraude: Possível fraude de valor atípico com timing suspeito
+
+Observações adicionais:
+- O valor elevado para um "Artigo Esportivo" genérico é um indicador chave de possível atividade fraudulenta.
+- O horário noturno da transação adiciona um elemento de suspeita, especialmente para uma compra de alto valor.
+- A localização em Porto Alegre - RS deve ser verificada em relação ao endereço registrado do titular do cartão.
