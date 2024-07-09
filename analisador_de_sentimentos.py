@@ -38,10 +38,11 @@ def analisador_sentimentos(produto):
             Pontos fracos: lista com três bullets
     """
     prompt_usuario = carrega(f"./dados/avaliacoes-{produto}.txt")
-    print(f"Inicou a análise de sentimentos do produto {produto}")
+    
     modelo = "claude-3-5-sonnet-20240620"
     # modelo = "claude"
     try:
+        print(f"Iniciou a análise de sentimentos do restaurante {produto}")
         lista_mensagens = client.messages.create(
             model=modelo,
             max_tokens=4000,
@@ -62,6 +63,7 @@ def analisador_sentimentos(produto):
         conteudo_texto = lista_mensagens.content[0].text 
         # print(conteudo_texto)
         salva(f"./dados/analise-{produto}.txt", conteudo_texto)
+        print(f"Finalizou a análise de sentimentos do restaurante {produto}")
     except anthropic.APIConnectionError as e:
         print("Não foi possivel se conectar ao servidor")
         print(e.__cause__)  # an underlying Exception, likely raised within httpx.
@@ -72,6 +74,8 @@ def analisador_sentimentos(produto):
         print(e.status_code)
         print(e.response)
     
+    
+lista_de_restaurante = ["Restaurante de Comida Chinesa","Restaurante de Comida Vegana","Restaurante de Doces e Bolos"]
 
-
-analisador_sentimentos(produto="Restaurante de Comida Vegana")
+for restaurante in lista_de_restaurante:
+    analisador_sentimentos(produto=restaurante)
