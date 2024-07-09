@@ -1,0 +1,95 @@
+{
+    "avaliacoes": [
+      {
+        "Cliente": "Ana Souza",
+        "Data": "2023-07-01",
+        "Comentario": "A qualidade dos ingredientes realmente faz a diferença! Super saborosos e frescos.",
+        "Nota": 5
+      },
+      {
+        "Cliente": "Carlos Oliveira",
+        "Data": "2023-06-28",
+        "Comentario": "Adorei a textura do bolo de chocolate, é suave e derrete na boca.",
+        "Nota": 5
+      },
+      {
+        "Cliente": "Beatriz Lima",
+        "Data": "2023-06-25",
+        "Comentario": "Excelente experiência! É bom saber que estou saboreando doces artesanais.",
+        "Nota": 4
+      },
+      {
+        "Cliente": "João Silva",
+        "Data": "2023-06-20",
+        "Comentario": "Os bolos mantêm a forma e o sabor incrível mesmo depois de várias visitas, a consistência me impressionou.",
+        "Nota": 5
+      },
+      {
+        "Cliente": "Mariana Costa",
+        "Data": "2023-06-18",
+        "Comentario": "O ambiente é confortável e acolhedor, mas esperava mais opções de sabores para escolher.",
+        "Nota": 3
+      },
+      {
+        "Cliente": "Pedro Martins",
+        "Data": "2023-06-15",
+        "Comentario": "Embora seja um pouco mais caro do que as confeitarias convencionais, vale cada centavo pela qualidade dos doces.",
+        "Nota": 4
+      },
+      {
+        "Cliente": "Julia Fernandes",
+        "Data": "2023-06-12",
+        "Comentario": "Recebi vários elogios ao levar amigos aqui pela qualidade e pelo sabor dos bolos.",
+        "Nota": 5
+      },
+      {
+        "Cliente": "Rafael Almeida",
+        "Data": "2023-06-10",
+        "Comentario": "Fantástico para qualquer ocasião, o bolo de frutas frescas me mantém refrescado e é delicioso.",
+        "Nota": 5
+      },
+      {
+        "Cliente": "Isabela Ribeiro",
+        "Data": "2023-06-08",
+        "Comentario": "Segui as recomendações do menu e os doces servidos foram perfeitos, além de super saborosos.",
+        "Nota": 4
+      },
+      {
+        "Cliente": "Gabriel Mendes",
+        "Data": "2023-06-05",
+        "Comentario": "A transparência na origem dos ingredientes e o uso de produtos frescos me faz escolher este restaurante sempre.",
+        "Nota": 5
+      },
+      {
+        "Cliente": "Sofia Araújo",
+        "Data": "2023-06-02",
+        "Comentario": "Senti falta de uma variedade maior de opções sem glúten, mas a qualidade dos bolos compensa.",
+        "Nota": 3
+      },
+      {
+        "Cliente": "Lucas Barbosa",
+        "Data": "2023-05-30",
+        "Comentario": "Perfeito para o dia a dia, os doces são saborosos e mantêm o sabor autêntico.",
+        "Nota": 4
+      },
+      {
+        "Cliente": "Larissa Santos",
+        "Data": "2023-05-27",
+        "Comentario": "Uma ótima iniciativa de confeitaria artesanal, mas o preço pode ser um impedimento para visitas frequentes.",
+        "Nota": 3
+      },
+      {
+        "Cliente": "Rodrigo Pereira",
+        "Data": "2023-05-25",
+        "Comentario": "Gostei do fato de os bolos não terem aquele sabor artificial que algumas confeitarias têm.",
+        "Nota": 4
+      },
+      {
+        "Cliente": "Fernanda Gomes",
+        "Data": "2023-05-22",
+        "Comentario": "Finalmente uma confeitaria onde os doces não variam de sabor! Já quero voltar mais vezes.",
+        "Nota": 5
+      }
+    ]
+  }
+  
