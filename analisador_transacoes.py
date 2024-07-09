@@ -97,7 +97,60 @@ def analisar_transacao(lista_de_transacoes):
         print(e.status_code)
         print(e.response)
 
-# código omitido
+def gerar_parecer(transacao):
+    print("2. Gerando parecer para transacao ", transacao["id"])
+    prompt_sistema = f"""
+    Para a seguinte transação, forneça um parecer, apenas se o status dela for de "Possível Fraude". Indique no parecer uma justificativa para que você identifique uma fraude.
+    Transação: {transacao}
+
+    ## Formato de Resposta
+    "id": "id",
+    "tipo": "crédito ou débito",
+    "estabelecimento": "nome do estabelecimento",
+    "horario": "horário da transação",
+    "valor": "R$XX,XX",
+    "nome_produto": "nome do produto",
+    "localizacao": "cidade - estado (País)"
+    "status": "",
+    "parecer" : "Colocar Não Aplicável se o status for Aprovado"
+    """
+    modelo = "claude-3-5-sonnet-20240620"
+    try:
+        
+        lista_mensagens = client.messages.create(
+            model=modelo,
+            max_tokens=4000,
+            # temperature=0,
+            # system=prompt_sistema,
+            messages=[
+                {
+                    "role": "user",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": prompt_sistema
+                        }
+                    ]
+                }
+            ]
+        )
+        conteudo = lista_mensagens.content[0].text
+        print("Finalizou a geração de parecer")
+        return conteudo
+    except anthropic.APIConnectionError as e:
+        print("Não foi possivel se conectar ao servidor")
+        print(e.__cause__) 
+    except anthropic.RateLimitError as e:
+        print("Espere um tempo! Seu limite foi atingido.")
+    except anthropic.APIStatusError as e:
+        print("Um status code diferente de 200 foi retornado!")
+        print(e.status_code)
+        print(e.response)
 
 lista_de_transacoes = carrega("transacoes.csv")
-analisar_transacao(lista_de_transacoes)
+transacoes_analisadas = analisar_transacao(lista_de_transacoes)
+
+for uma_transacao in transacoes_analisadas["transacoes"]: 
+    if uma_transacao["status"] == "Possível Fraude": 
+        um_parecer = gerar_parecer(uma_transacao)
+        print(um_parecer)
