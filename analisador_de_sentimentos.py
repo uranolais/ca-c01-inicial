@@ -1,7 +1,6 @@
 import anthropic
 import dotenv 
 import os
-import time
 
 dotenv.load_dotenv()
 client = anthropic.Anthropic(
@@ -41,26 +40,38 @@ def analisador_sentimentos(produto):
     prompt_usuario = carrega(f"./dados/avaliacoes-{produto}.txt")
     print(f"Inicou a análise de sentimentos do produto {produto}")
     modelo = "claude-3-5-sonnet-20240620"
+    # modelo = "claude"
+    try:
+        lista_mensagens = client.messages.create(
+            model=modelo,
+            max_tokens=4000,
+            # temperature=0,
+            system=prompt_sistema,
+            messages=[
+                {
+                    "role": "user",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": prompt_usuario
+                        }
+                    ]
+                }
+            ]
+        )
+        conteudo_texto = lista_mensagens.content[0].text 
+        # print(conteudo_texto)
+        salva(f"./dados/analise-{produto}.txt", conteudo_texto)
+    except anthropic.APIConnectionError as e:
+        print("Não foi possivel se conectar ao servidor")
+        print(e.__cause__)  # an underlying Exception, likely raised within httpx.
+    except anthropic.RateLimitError as e:
+        print("Espere um tempo! Seu limite foi atingido.")
+    except anthropic.APIStatusError as e:
+        print("Um status code diferente de 200 foi retornado!")
+        print(e.status_code)
+        print(e.response)
+    
 
-    lista_mensagens = client.messages.create(
-        model=modelo,
-        max_tokens=4000,
-        # temperature=0,
-        system=prompt_sistema,
-        messages=[
-            {
-                "role": "user",
-                "content": [
-                    {
-                        "type": "text",
-                        "text": prompt_usuario
-                    }
-                ]
-            }
-        ]
-    )
-    conteudo_texto = lista_mensagens.content[0].text 
-    # print(conteudo_texto)
-    salva(f"./dados/analise-{produto}.txt", conteudo_texto)
 
-analisador_sentimentos(produto="Restaurante de Comida Chinesa")
+analisador_sentimentos(produto="Restaurante de Comida Vegana")
